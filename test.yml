@@ -1,0 +1,11 @@
+environment:
+  access_token:
+    secure: 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
+
+on_success:
+  - git config --global credential.helper store
+  - ps: Set-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token)@github.com/axaysawant/jenkins_project.git" 
+  - git config --global user.email "akshay.sawant@ufl.edu"
+  - git config --global user.name "axaysawant"
+  - git commit ...
+  - git push ...
